@@ -4,9 +4,7 @@
  */
 var isPalindrome = function(x) {
   let number = x+"";
-  if(number === number.split("").reverse().join("")){
-    return true;
-  }else{
-    return false;
-  }
+  let result = false
+  if (number === number.split("").reverse().join("")) result = true;
+  return result;
 };
