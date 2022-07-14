@@ -1,6 +1,13 @@
 class Solution:
     def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
-        words = [word for word in re.sub(
-            r'[^\w]', ' ', paragraph).lower().split() if word not in banned]
+        paragraph = paragraph.lower()
+        paragraph = re.sub('[^\w]', ' ', paragraph)
+        paragraph_list = paragraph.split(" ")
+        words = []
+        for text in paragraph_list:
+            if text in banned or text == '':
+                continue
+            else:
+                words.append(text)
         counts = collections.Counter(words)
         return counts.most_common(1)[0][0]
