@@ -58,3 +58,7 @@ function same3(a, b) {
 console.time('same3');
 same3([ 1, 2, 3 ], [ 1, 4, 9 ]);
 console.timeEnd('same3');
+
+// same: 0.13ms
+// same2: 0.083ms
+// same3: 0.091ms
