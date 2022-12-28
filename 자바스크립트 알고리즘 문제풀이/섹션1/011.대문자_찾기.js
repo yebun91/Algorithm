@@ -1,8 +1,11 @@
 function solution(s) {
   let answer = 0;
-  for (str of s) {
-    if (str.charCodeAt(0) < 91 && str.charCodeAt(0) > 64) answer++;
+  for (let str of s) {
+    if (str.charCodeAt() < 91 && str.charCodeAt() > 64) answer++;
   }
+  // for(let str of s){
+  //   if(str === str.toUpperCase()) answer++;
+  // }
   return answer;
 }
 
