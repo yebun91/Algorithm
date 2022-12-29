@@ -22,3 +22,5 @@ Array.from([1, 2, 3], (x) => x + x); //[2, 4, 6]
 Array.from({ length: 5 }, () => 1); // [1, 1, 1, 1, 1]
 
 Math.max(11, 23, 44); // 44
+
+"abcd".split("").reverse().join(""); //dcba 문자열 뒤집기
