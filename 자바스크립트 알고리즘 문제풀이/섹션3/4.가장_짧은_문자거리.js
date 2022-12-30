@@ -13,6 +13,7 @@ function solution(s, t) {
     }
   }
   
+  minNum = 0;
   for(let i = len-1; i>=0; i--){
     if (s[i] === t) {
       minNum = 0;
