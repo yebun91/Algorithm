@@ -3,16 +3,25 @@ function solution(n, k, card) {
   let set = new Set();
 
   for (let i = 0; i < n; i++) {
-    for (let j = 0; j < n; j++) {
-      if (i != j) {
-        for (let k = 0; k < n; k++) {
-          if (k != j && k != i) {
-            set.add(card[i] + card[j] + card[k]);
-          }
-        }
+    for (let j = i + 1; j < n; j++) {
+      for (let k = j + 1; k < n; k++) {
+        set.add(card[i] + card[j] + card[k]);
       }
     }
   }
+
+  // for (let i = 0; i < n; i++) {
+  //   for (let j = 0; j < n; j++) {
+  //     if (i != j) {
+  //       for (let k = 0; k < n; k++) {
+  //         if (k != j && k != i) {
+  //           set.add(card[i] + card[j] + card[k]);
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+
   let arr = Array.from(set).sort((a, b) => b - a);
   answer = arr[k - 1];
   return answer;
