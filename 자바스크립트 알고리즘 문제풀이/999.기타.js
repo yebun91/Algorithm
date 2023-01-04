@@ -24,3 +24,8 @@ Array.from({ length: 5 }, () => 1); // [1, 1, 1, 1, 1]
 Math.max(11, 23, 44); // 44
 
 "abcd".split("").reverse().join(""); //dcba 문자열 뒤집기
+
+var numbers = [4, 2, 5, 1, 3]; //sort [ 1, 2, 3, 4, 5 ]
+numbers.sort((a, b) => {
+  return a - b;
+});
