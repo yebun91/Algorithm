@@ -1,5 +1,14 @@
 function solution(s) {
-  let answer;
+  let answer = "";
+  let stack = [];
+
+  for (x of s) {
+    if (x === "(") stack.push(x);
+    else if (x === ")") stack.pop();
+    else {
+      if (stack.length === 0) answer += x;
+    }
+  }
 
   return answer;
 }
