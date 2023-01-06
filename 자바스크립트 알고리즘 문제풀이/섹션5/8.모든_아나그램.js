@@ -6,10 +6,9 @@ function solution(s, t) {
   }
   let left = 0;
   let max = "";
-  for (let rigth = t.length; rigth < s.length; rigth++) {
+  for (let rigth = t.length; rigth < s.length + 1; rigth++) {
     max = s.substring(left, rigth);
     if (isAnagram(max, strObject)) {
-      console.log(max);
       answer++;
     }
     left++;
@@ -18,11 +17,12 @@ function solution(s, t) {
 }
 
 function isAnagram(str, strObject) {
+  const copy = Object.assign({}, strObject);
   for (alphabat of str) {
-    if (!strObject[alphabat]) {
+    if (!copy[alphabat]) {
       return false;
     } else {
-      strObject[alphabat] -= 1;
+      copy[alphabat] -= 1;
     }
   }
   return true;
