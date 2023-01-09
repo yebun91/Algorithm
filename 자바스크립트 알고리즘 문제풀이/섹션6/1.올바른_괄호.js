@@ -1,17 +1,14 @@
 function solution(s) {
   let answer = "YES";
-  let stack = [];
-
-  if (s[0] === ")") {
-    answer = "NO";
-  } else {
-    for (x of s) {
-      if (x === "(") stack.push(x);
-      else stack.pop();
+  stack = [];
+  for (let x of s) {
+    if (x === "(") stack.push(x);
+    else {
+      if (stack.length === 0) return "NO";
+      stack.pop();
     }
-    if (stack.length !== 0) answer = "NO";
   }
-
+  if (stack.length > 0) return "NO";
   return answer;
 }
 
