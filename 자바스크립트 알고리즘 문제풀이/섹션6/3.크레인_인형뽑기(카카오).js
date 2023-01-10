@@ -1,6 +1,20 @@
 function solution(board, moves) {
   let answer = 0;
-
+  let stack = [];
+  for (x of moves) {
+    for (let j = 0; j < 5; j++) {
+      if (board[j][x - 1] !== 0) {
+        if (board[j][x - 1] === stack[stack.length - 1]) {
+          stack.pop();
+          answer += 2;
+        } else {
+          stack.push(board[j][x - 1]);
+        }
+        board[j][x - 1] = 0;
+        break;
+      }
+    }
+  }
   return answer;
 }
 
