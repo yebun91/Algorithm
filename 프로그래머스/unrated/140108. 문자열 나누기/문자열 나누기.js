@@ -13,7 +13,6 @@ function solution(s) {
         count--;
         if (count === 0) {
           answer++;
-          console.log(s[i]);
         }
       }
     }
