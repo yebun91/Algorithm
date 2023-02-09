@@ -1,6 +1,19 @@
 function solution(arr) {
+  const allSum = arr.reduce((a, b) => a + b, 0);
+  const n = arr.length;
   let answer = "NO";
 
+  function DFS(L, sum) {
+    if (L === n) {
+      if (allSum - sum === sum) return "YES";
+    } else {
+      DFS(L + 1, sum + arr[L]);
+      DFS(L + 1, sum);
+    }
+  }
+
+  DFS(0, 0);
+  console.log(allSum);
   return answer;
 }
 
