@@ -1,12 +1,17 @@
 function solution(n) {
   let answer = "";
-  function DFS(n) {
-    if (n > 7) {
+  function DFS(L) {
+    if (L > 7) {
       return;
     } else {
-      DFS(n * 2);
-      DFS(n * 2 + 1);
-      console.log(n);
+      // 전위 순회
+      // answer += `${L} `;
+      DFS(L * 2);
+      // 중위 순회
+      // answer += `${L} `;
+      DFS(L * 2 + 1);
+      // 후위 순회
+      answer += `${L} `;
     }
   }
   DFS(n);

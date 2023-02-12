@@ -1,20 +1,19 @@
+const { tmpdir } = require("os");
+
 function solution(n) {
   let answer = [];
   let ch = Array.from({ length: n + 1 }, () => 0);
   function DFS(v) {
-    if (n < v) {
+    if (v > n) {
       let temp = "";
       for (let i = 1; i <= n; i++) {
         if (ch[i] === 1) {
-          temp += i;
+          temp += i + " ";
         }
       }
-      console.log(ch);
       if (temp.length > 0) {
-        answer.push(temp);
+        answer.push(temp.trim());
       }
-
-      return;
     } else {
       ch[v] = 1;
       DFS(v + 1);
