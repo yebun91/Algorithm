@@ -1,7 +1,6 @@
 function solution(arr) {
   const allSum = arr.reduce((a, b) => a + b, 0);
   const n = arr.length;
-  let answer = "NO";
 
   function DFS(L, sum) {
     if (L === n) {
@@ -13,8 +12,7 @@ function solution(arr) {
   }
 
   DFS(0, 0);
-  console.log(allSum);
-  return answer;
+  return "NO";
 }
 
 let arr = [1, 3, 5, 6, 7, 10];
