@@ -1,22 +1,21 @@
-const [N, S, ...arr] = require("fs")
-  .readFileSync("input.txt")
-  .toString()
-  .trim()
-  .split(/\s+/)
-  .map((v) => +v);
+const path = process.platform === "linux" ? "/dev/stdin" : "input.txt";
+const num = require("fs").readFileSync(path).toString().trim();
 
 const solution = () => {
+  let number = Number(num);
   let result = 0;
-  // N: 수열의 길이, S: 합이 되고자 하는 값, arr: 수열
-  const DFS = (L, sum) => {
-    // L: 트리 레벨, sum: 더한 값
-    if (L === N) return;
-    sum += arr[L];
-    if (sum === S) result++;
-    DFS(L + 1, sum);
-    DFS(L + 1, sum - arr[L]);
-  };
-  DFS(0, 0);
+
+  if (number === 1 || number === 3) return -1;
+
+  while (number > 0) {
+    if (number % 2 === 1 || number % 5 === 0) {
+      result++;
+      number -= 5;
+    } else if (number % 2 === 0) {
+      result++;
+      number -= 2;
+    }
+  }
   return result;
 };
 
